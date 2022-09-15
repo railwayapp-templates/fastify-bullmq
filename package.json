@@ -11,13 +11,10 @@
     "src"
   ],
   "scripts": {
-    "analyze": "size-limit --why",
     "build": "dts build",
     "lint": "dts lint",
-    "prepare": "dts build",
-    "size": "size-limit",
-    "start": "dts watch",
-    "test": "dts test"
+    "watch": "dts watch",
+    "start": "node dist/index.js"
   },
   "husky": {
     "hooks": {
@@ -30,21 +27,23 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "peerDependencies": {},
   "engines": {
     "node": ">=12"
   },
-  "size-limit": [
-    {
-      "path": "dist/queue-service.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/queue-service.esm.js",
-      "limit": "10 KB"
-    }
-  ]
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "dts-cli": "^1.6.0",
+    "husky": "^8.0.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "@bull-board/api": "^4.2.2",
+    "@bull-board/fastify": "^4.2.2",
+    "@bull-board/ui": "^4.2.2",
+    "bullmq": "^1.90.2",
+    "envsafe": "^2.0.3",
+    "fastify": "^4.5.3"
+  }
 }
